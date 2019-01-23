@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This calendar was built to solve the following coding challenge:
 
-Things you may want to cover:
+#### Create an App using Rails&Postgres that renders a calendar and allows you to add an event
 
-* Ruby version
+* Calendar should allow you to move forward and backward months
+* Calendar can have an event added to a day (event should have a name and time)
+* Events should be ablet o be removed or rescheduled
+* There can only be 1 event at a specific time on any given day.
 
-* System dependencies
 
-* Configuration
+The calendar doesn't have to look nice or be styled, it just has to look like a clandar
 
-* Database creation
+Important:
+* Don't use any frameworks that create calendars for you, the rest is up you on the frontend
 
-* Database initialization
+* Calendar must be rendered using no gems that do the rendering for you
 
-* How to run the test suite
+* The begginning of the week should be a Sunday
 
-* Services (job queues, cache servers, search engines, etc.)
+* Create a repo on Github
 
-* Deployment instructions
-
-* ...
+BONUS:
+* Use Slim framework instead of ERB for the frontend
+* If you decide to use Rails 5 make the events update in realtime for different viewers of the calendar
