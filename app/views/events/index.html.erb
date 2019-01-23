@@ -1,0 +1,11 @@
+<h1>Upcoming Events</h1>
+
+  <% if !@events.empty? %>
+    <ul>
+      <% @events.each do |event| %>
+        <li><%= event.name %></li>
+      <% end %>
+      </ul>
+  <% else %>
+    <p>You have no scheduled events at this time.</p>
+  <% end %>
