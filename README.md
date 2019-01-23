@@ -6,19 +6,15 @@ This calendar was built to solve the following coding challenge:
 
 * Calendar should allow you to move forward and backward months
 * Calendar can have an event added to a day (event should have a name and time)
-* Events should be ablet o be removed or rescheduled
-* There can only be 1 event at a specific time on any given day.
+* Events should be able to be removed or rescheduled
+* There can only be 1 event at a specific time on any given day
+* The calendar doesn't have to look nice or be styled, it just has to look like a calendar
 
-
-The calendar doesn't have to look nice or be styled, it just has to look like a clandar
 
 Important:
 * Don't use any frameworks that create calendars for you, the rest is up you on the frontend
-
 * Calendar must be rendered using no gems that do the rendering for you
-
 * The begginning of the week should be a Sunday
-
 * Create a repo on Github
 
 BONUS:
