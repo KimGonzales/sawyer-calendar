@@ -3,7 +3,10 @@
   <% if !@events.empty? %>
     <ul>
       <% @events.each do |event| %>
-        <li><%= event.name %></li>
+        <li><h1><%= event.name %></h1>
+          <p><%= event.time.strftime("%b %d, %Y %I:%M") %></p>
+        </li>
+
       <% end %>
       </ul>
   <% else %>

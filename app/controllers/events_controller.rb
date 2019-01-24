@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    (@event.update(event_params)) ? (redirect_to root_path) : (render :edit) 
+    (@event.update(event_params)) ? (redirect_to '/events') : (render :edit) 
   end
 
   def delete
