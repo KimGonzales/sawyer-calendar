@@ -1,36 +1,36 @@
- <div class="container">
-    <h1> Calendar </h1>
+<div class="container">
+  <h1> Calendar </h1>
 
-    <% start_date = params.fetch(:start_date, Date.today).to_date %>
+  <% start_date = params.fetch(:start_date, Date.today).to_date %>
 
-    <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
+  <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
 
-    <%= link_to "Previous", start_date: date_range.first - 1.day %>
-    <%= link_to "Next", start_date: date_range.last + 1.day %>
+  <%= link_to "Previous", start_date: date_range.first - 1.day %>
+  <%= link_to "Next", start_date: date_range.last + 1.day %>
 
-    <h1><%= start_date.strftime("%B %Y") %></h1>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <% date_range.slice(0,7).each do | day| %>
-            <th><%= day.strftime("%A") %></th>
-          <% end %>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% date_range.each_slice(7) do |week| %>
-            <tr>
-              <% week.each do |day| %>
-                <td class="col-md-12 text-center">
-                  <%= day.day %>
-                  <% @events.select{|e| e.time.to_date == day }.each do |event| %>
-                    <div class="small"><%= event.name %></div>
-                  <% end %>
-                </td>
-              <% end %>
-            </tr>
+  <h1><%= start_date.strftime("%B %Y") %></h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <% date_range.slice(0,7).each do | day| %>
+          <th><%= day.strftime("%A") %></th>
         <% end %>
-      </tbody>
-    </table>
-  </div>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+          <tr>
+            <% week.each do |day| %>
+              <td class="col-md-12 text-center">
+                <%= day.day %>
+                <% @events.select{|e| e.time.to_date == day }.each do |event| %>
+                  <div class="small"><%= event.name %></div>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
