@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @event = Event.new
   end
 
   def new
@@ -28,9 +29,9 @@ class EventsController < ApplicationController
     (@event.update(event_params)) ? (redirect_to '/events') : (render :edit) 
   end
 
-  def delete
+  def destroy
     @event.destroy
-    redirect_to root_path
+    redirect_to '/index'
   end
 
   private

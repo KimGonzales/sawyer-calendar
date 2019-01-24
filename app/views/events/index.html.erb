@@ -1,14 +1,22 @@
-<h1>Upcoming Events</h1>
+<div class='container'>
+  <h1>Upcoming Events</h1>
 
-  <% if !@events.empty? %>
-    <ul>
-      <% @events.each do |event| %>
-        <li><h1><%= event.name %></h1>
-          <p><%= event.time.strftime("%b %d, %Y %I:%M") %></p>
-        </li>
+    <% if !@events.empty? %>
+      <ul>
+        <% @events.each do |event| %>
+          <li><h3><%= event.name %></h3>
+            <p><%= event.time.strftime("%b %d, %Y %I:%M") %></p>
+            <button><%=link_to "edit", edit_event_path(event)%></button>
+            <button><%=link_to "delete", event_path(event), method: :delete, data: {confirm: 'delete this event?' } %></button>
+          </li><br/>
+        <% end %>
+        </ul>
+    <% else %>
+      <p>You have no scheduled events at this time.</p>
+    <% end %>
 
-      <% end %>
-      </ul>
-  <% else %>
-    <p>You have no scheduled events at this time.</p>
-  <% end %>
+  <div class="container new-event-form">
+    <h1> Add another Event </h1>
+    <%= render 'form', :event => @event %>
+  </div>
+</div>
