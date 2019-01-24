@@ -1,0 +1,25 @@
+.container
+  = render 'calendar', start_date: @date
+  br
+  br
+  h3.text-center Upcoming Events
+  - if !@events.empty?
+    ul.list-group
+    - @events.each do |event| 
+      li.list-group-item
+        h4 
+          = event.name
+        p
+          = display_time(event)
+        .btn-group
+          button.btn.btn-light.btn-sm.btn-secondary
+            = link_to "edit", edit_event_path(event)
+          button.btn.btn-dark.btn-sm.btn-secondary
+            = link_to "delete", event_path(event), method: :delete, data: {confirm: 'delete this event?' }
+      br  
+  - else
+    p You have no scheduled events at this time.
+
+  .container.new-event-form
+    h1 New Event
+    = render 'form', event: @event
