@@ -1,10 +1,16 @@
 <div class='container'>
-  <h1>Upcoming Events</h1>
+
+ <%= render 'calendar' %>
+ 
+ <br/>
+ <br/>
+
+  <h3>Upcoming Events</h3>
 
     <% if !@events.empty? %>
       <ul>
         <% @events.each do |event| %>
-          <li><h3><%= event.name %></h3>
+          <li><h5><%= event.name %></h5>
             <p><%= event.time.strftime("%b %d, %Y %I:%M") %></p>
             <button><%=link_to "edit", edit_event_path(event)%></button>
             <button><%=link_to "delete", event_path(event), method: :delete, data: {confirm: 'delete this event?' } %></button>
@@ -19,4 +25,5 @@
     <h1> Add another Event </h1>
     <%= render 'form', :event => @event %>
   </div>
+
 </div>

@@ -1,3 +1,5 @@
+
+<!-- delete this file  -->
 <h1> Calendar </h1>
 
 <% start_date = params.fetch(:start_date, Date.today).to_date %>
@@ -9,7 +11,7 @@
 
 
 <h1><%= start_date.strftime("%B") %></h1>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <% date_range.slice(0,7).each do | day| %>

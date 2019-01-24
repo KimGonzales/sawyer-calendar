@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.sort_by(&:time)
     @event = Event.new
   end
 
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to '/index'
+    redirect_to '/events'
   end
 
   private
