@@ -22,7 +22,7 @@
         <% date_range.each_slice(7) do |week| %>
             <tr>
               <% week.each do |day| %>
-                <td>
+                <td class="col-md-12 text-center">
                   <%= day.day %>
                   <% @events.select{|e| e.time.to_date == day }.each do |event| %>
                     <div class="small"><%= event.name %></div>
