@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
+  require 'pry'
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    set_date
     @events = Event.all.sort_by(&:time)
     @event = Event.new
   end
@@ -37,6 +39,10 @@ class EventsController < ApplicationController
   private
     def set_event
       @event = Event.find_by(id: params[:id])
+    end
+
+    def set_date
+      @date = params.fetch(:start_date, Date.today).to_date
     end
 
     def event_params
