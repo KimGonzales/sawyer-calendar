@@ -1,17 +1,15 @@
 <div class='container'>
 
  <%= render partial: 'calendar', locals: {start_date: @date} %>
-
- <br/>
- <br/>
-
+  <br/>
+  <br/>
+  
   <h3>Upcoming Events</h3>
-
     <% if !@events.empty? %>
-      <ul>
+      <ul class="list-group">
         <% @events.each do |event| %>
-          <li><h5><%= event.name %></h5>
-            <p><%= event.time.strftime("%b %d, %Y %I:%M") %></p>
+          <li class="list-group-item"><h4><%= event.name %></h4>
+            <p><%= display_time(event) %></p>
             <button><%=link_to "edit", edit_event_path(event)%></button>
             <button><%=link_to "delete", event_path(event), method: :delete, data: {confirm: 'delete this event?' } %></button>
           </li><br/>
@@ -25,5 +23,4 @@
     <h1> Add another Event </h1>
     <%= render 'form', :event => @event %>
   </div>
-
 </div>
