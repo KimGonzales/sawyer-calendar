@@ -4,6 +4,7 @@
 
 <% date_range = (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.beginning_of_week).to_a %>
 
+<h1><%= start_date.strftime("%B") %></h1>
 <table>
   <thead>
     <tr>
@@ -31,9 +32,3 @@
   </tbody>
 
 </table>
-
-<!-- 
-seed 12 months
-Month model table with days and startdate
-
--->
