@@ -14,7 +14,7 @@
         .btn-group
           button.btn.btn-light.btn-sm.btn-secondary
             = link_to "edit", edit_event_path(event)
-          button.btn.btn-dark.btn-sm.btn-secondary
+          button.btn.btn-warning.btn-sm.btn-secondary
             = link_to "delete", event_path(event), method: :delete, data: {confirm: 'delete this event?' }
       br  
   - else

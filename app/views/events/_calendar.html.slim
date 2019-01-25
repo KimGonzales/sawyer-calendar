@@ -1,6 +1,6 @@
 .container
   = link_to "Previous", start_date: date_range(start_date).first - 1.day
-  span
+  '
    
   = link_to "Next", start_date: date_range(start_date).last + 1.day
   h1.text-center
