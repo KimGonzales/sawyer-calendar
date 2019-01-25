@@ -1,6 +1,5 @@
 module EventsHelper
-  require 'pry'
-
+  
   def weekday(date)
     date.strftime("%A")
   end
