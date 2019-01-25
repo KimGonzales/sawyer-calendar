@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  require 'pry'
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,9 +14,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save 
-      redirect_to '/events'
+      redirect_to '/events', notice: "Your event was succesfully created"
     else 
-      render :new
+      render :new, notice: "Events cannot be made for the same time"
     end
   end
 
@@ -28,7 +27,11 @@ class EventsController < ApplicationController
   end
 
   def update
-    (@event.update(event_params)) ? (redirect_to '/events') : (render :edit) 
+    if @event.update(event_params)
+      (redirect_to '/events')
+    else 
+      render :edit, notice: "Events cannot be made for the same time"
+    end
   end
 
   def destroy

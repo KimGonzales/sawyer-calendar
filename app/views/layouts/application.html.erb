@@ -12,6 +12,13 @@
 
   <body>
     <div class='container'>
+
+        <% unless flash.empty? %>
+          <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info" %>
+          <% end %>
+        <% end %>
+
       <h1 class="font-weight-light text-center">Sawyer Calendar Challenge </h1><br>
       <%= yield %>
     </div>
