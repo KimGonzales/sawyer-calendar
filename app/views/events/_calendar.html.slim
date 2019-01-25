@@ -1,0 +1,23 @@
+.container
+  = link_to "Previous", start_date: date_range(start_date).first - 1.day
+  span
+   
+  = link_to "Next", start_date: date_range(start_date).last + 1.day
+  h1.text-center
+    = month_name(start_date)
+  table.table.table-striped.table-bordered
+    thead
+      tr
+        - first_week_of_month(start_date).each do | day | 
+          th
+            = weekday(day)
+
+    tbody
+      - date_range(start_date).each_slice(7) do |week|
+        tr
+          - week.each do |day| 
+            td.text-center
+              = day.day
+              - @events.select{|e| e.time.to_date == day }.each do |event|
+                .small
+                  = event.name
